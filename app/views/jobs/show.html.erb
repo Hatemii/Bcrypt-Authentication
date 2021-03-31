@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+    <strong>Title:</strong>
+    <%= @job.title %>
+</p>
+
+<p>
+    <strong>Body:</strong>
+    <%= @job.body %>
+</p>
+
+<p>
+    <strong>User:</strong>
+    <%= @job.user.userHandle %>
+</p>
+
+<% if current_user %>
+<%= link_to 'Edit', edit_job_path(@job) %> |
+<% end %>
+
+<%= link_to 'Back', jobs_path %>
