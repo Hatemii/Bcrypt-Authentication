@@ -8,12 +8,36 @@
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <link rel="stylesheet" href="https://bootswatch.com/4/sandstone/bootstrap.min.css">
 
 </head>
 
 <body>
-    <div class="container" style="margin-top:50px">
+    <nav class="nav">
+        <div class="container-fluid">
+            <a href="/"><img src="<%= asset_path('logo3.png') %>" /></a>
+
+            <ul>
+                <li><a href="/">HOME</a></li>
+                <li><a href="/jobs">JOBS</a></li>
+
+                <% if logged_in? %>
+                <span style="float:right; margin-right:30px">
+                    <li><a href=" /users/<%= current_user.id %>">MY PROFILE</a></li>
+                    <li><a href="/logout">LOG OUT</a></li>
+                </span>
+
+                <% else %>
+                <span style="float:right; margin-right:30px">
+                    <li><a href="/signup">SIGN UP</a></li>
+                    <li><a href="/login">LOG IN</a></li>
+                </span>
+                <% end %>
+
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
         <%= yield %>
     </div>
 </body>

@@ -15,9 +15,8 @@ class UsersController < ApplicationController
         if @user.valid?
             @user.save
             session[:user_id] = @user.id
-            redirect_to root_path, flash.now[:notice] = "Registered Successfully"
+            redirect_to root_path, notice: "Registered Successfully"
         else
-            flash.now[:notice] = "Something went wrong"
             redirect_to signup_path
         end
     end

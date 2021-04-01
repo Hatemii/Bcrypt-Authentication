@@ -17,11 +17,50 @@
  @import "bootstrap";
  
  html {
-     font-size: 18px;
      margin: auto;
  }
- 
+
+ table {
+     margin-top: 3rem;
+ }
 
  table td,th {
      text-align: center;
  }
+
+ .nav{
+    text-align: center;
+    background-color: rgb(30, 44, 124);
+    height: 6rem;
+}
+
+.nav ul {
+    list-style-type: none;
+    text-align: center;
+    padding: 0;
+}
+
+.nav li {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bold;
+    font-size: 12px;
+    padding-left: 40px;
+    float: left;
+    margin-top: 18px;
+}
+
+.nav a {
+    text-decoration: none;
+    color:white;
+    padding: 3px 0px;
+}
+
+li a:hover{
+    color: rgb(175, 175, 175);
+    background-color: transparent;
+}
+
+.nav img {
+    float: left;
+    width:50px;
+}
