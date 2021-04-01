@@ -22,16 +22,12 @@
             <td><%= job.user.userHandle %></td>
             <td><%= job.created_at.strftime("%d/%m/%Y") %></td>
             <td><%= link_to 'Show', job, class: "btn btn-info" %>
-
-                <% if current_user == job.user %>
+                <% if logged_in? && (current_user == job.user || current_user.admin?) %>
                 | <%= link_to 'Edit', edit_job_path(job), class: "btn btn-success" %> |
                 <%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
                 <% end %>
             </td>
-
         </tr>
         <% end %>
     </tbody>
 </table>
-
-<br>

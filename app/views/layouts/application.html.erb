@@ -23,7 +23,7 @@
                 <% if logged_in? %>
                 <span style="float:right; margin-right:30px">
                     <li><a href=" /users/<%= current_user.id %>">MY PROFILE</a></li>
-                    <li><a href="/logout">LOG OUT</a></li>
+                    <li><a href="/logout" data-confirm="Are you sure?">LOG OUT</a></li>
                 </span>
 
                 <% else %>
