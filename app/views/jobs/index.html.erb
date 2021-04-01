@@ -20,7 +20,7 @@
             <td><%= job.user.userHandle %></td>
             <td><%= link_to 'Show', job %></td>
 
-            <% if current_user %>
+            <% if current_user == job.user %>
             <td><%= link_to 'Edit', edit_job_path(job) %></td>
             <td><%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %></td>
             <% end %>

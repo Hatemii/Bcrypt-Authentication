@@ -1,5 +1,5 @@
 class JobsController < ApplicationController
-  before_action :authorize, except: [:show, :index]
+    before_action :authorize, except: [:show, :index]
 
   def index
     @jobs = Job.all

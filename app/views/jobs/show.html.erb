@@ -15,7 +15,7 @@
     <%= @job.user.userHandle %>
 </p>
 
-<% if current_user %>
+<% if current_user == @job.user %>
 <%= link_to 'Edit', edit_job_path(@job) %> |
 <% end %>
 
