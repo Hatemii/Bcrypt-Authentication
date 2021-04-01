@@ -32,6 +32,8 @@ class JobsController < ApplicationController
   end
 
   def update
+    @job = Job.find(params[:id])
+    @job.update(job_params)
     respond_to do |format|
       if @job.update(job_params)
         format.html { redirect_to @job, notice: "Job was successfully updated." }

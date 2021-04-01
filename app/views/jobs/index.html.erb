@@ -1,6 +1,6 @@
 <h1>Jobs</h1>
 
-<%= link_to 'Create New Job', new_job_path %>
+<%= link_to 'Create New Job', new_job_path, class: "btn btn-primary" %>
 
 
 <table class="table table-striped">
@@ -21,11 +21,11 @@
             <td><%= job.body %></td>
             <td><%= job.user.userHandle %></td>
             <td><%= job.created_at.strftime("%d/%m/%Y") %></td>
-            <td><%= link_to 'Show', job %>
+            <td><%= link_to 'Show', job, class: "btn btn-info" %>
 
                 <% if current_user == job.user %>
-                | <%= link_to 'Edit', edit_job_path(job) %> |
-                <%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %>
+                | <%= link_to 'Edit', edit_job_path(job), class: "btn btn-success" %> |
+                <%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
                 <% end %>
             </td>
 
