@@ -2,7 +2,7 @@ class JobsController < ApplicationController
     before_action :authorize, except: [:show, :index]
 
   def index
-    @jobs = Job.all
+    @jobs = Job.all.order("Created_At DESC")
   end
 
   def show

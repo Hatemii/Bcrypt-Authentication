@@ -2,13 +2,14 @@
 
 <h1>Jobs</h1>
 
-<table>
+<table class="table table-striped">
     <thead>
         <tr>
             <th>Title</th>
             <th>Body</th>
             <th>User</th>
-            <th colspan="3"></th>
+            <th>Date Post</th>
+            <th>Action</th>
         </tr>
     </thead>
 
@@ -18,12 +19,15 @@
             <td><%= job.title %></td>
             <td><%= job.body %></td>
             <td><%= job.user.userHandle %></td>
-            <td><%= link_to 'Show', job %></td>
+            <td><%= job.created_at.strftime("%d/%m/%Y") %></td>
+            <td><%= link_to 'Show', job %>
 
-            <% if current_user == job.user %>
-            <td><%= link_to 'Edit', edit_job_path(job) %></td>
-            <td><%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-            <% end %>
+                <% if current_user == job.user %>
+                | <%= link_to 'Edit', edit_job_path(job) %> |
+                <%= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %>
+                <% end %>
+            </td>
+
         </tr>
         <% end %>
     </tbody>
