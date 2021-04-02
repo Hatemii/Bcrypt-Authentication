@@ -1,21 +1,21 @@
 class SessionsController < ApplicationController
-
-  def new
-  end
-
+  protect_from_forgery with: :null_session
+  
   def create
-    user = User.find_by_email(params[:email])
+    user = User
+    .find_by(email: params["user"]["email"])
+    .authenticate(params["user"]["password"])
 
-    if user && user.authenticate(params[:password])
+    if user
       session[:user_id] = user.id
-      redirect_to current_user, notice: "Logged in successfully"
+      render json:{
+        status: :created,
+        logged_in: true,
+        user: user
+      }
     else
-      redirect_to login_path
+      render json: {status: 401}
     end
-  end
 
-  def destroy
-    session[:user_id] = nil
-    redirect_to root_path
   end
 end
