@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import Routes from './routes/Routes'
-import axios from "axios"
 
 
 export default class App extends Component {

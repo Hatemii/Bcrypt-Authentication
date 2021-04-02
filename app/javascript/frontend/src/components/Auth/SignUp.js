@@ -34,7 +34,7 @@ export default class SignUp extends Component {
             }
         }, { withCredentials: true }
         ).then(res => {
-            if (res.data.status === "created") {
+            if (res.data.logged_in) {
                 this.props.handleSuccessfulAuth(res.data)
             }
         }).catch(err => {
