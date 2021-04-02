@@ -32,9 +32,11 @@ export default class SignUp extends Component {
                 password: password,
                 password_confirmation: password_confirmation
             }
-        }).then(res => {
-            console.log("User Created Successfully")
-            this.props.history.push("/")
+        }, { withCredentials: true }
+        ).then(res => {
+            if (res.data.status === "created") {
+                this.props.handleSuccessfulAuth(res.data)
+            }
         }).catch(err => {
             console.log(err);
         })

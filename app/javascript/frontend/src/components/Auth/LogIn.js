@@ -33,8 +33,9 @@ export default class LogIn extends Component {
                 }
             }, { withCredentials: true }
         ).then(res => {
-            console.log(res)
-            // this.props.history.push("/")
+            if (res.data.logged_in) {
+                console.log(res.data)
+            }
         }).catch(err => {
             console.log(err);
         })

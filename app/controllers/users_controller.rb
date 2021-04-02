@@ -17,7 +17,11 @@ class UsersController < ApplicationController
         if @user.valid?
             @user.save
             session[:user_id] = @user.id
-            render json: @user
+            render json: {
+                status: "created",
+                logged_in: true,
+                user: @user
+            }
         else
             render json: @user.errors
         end
