@@ -33,10 +33,9 @@ export default class LogIn extends Component {
                 }
             }, { withCredentials: true }
         ).then(res => {
-            console.log(res)
-            // if (res.data.logged_in) {
-            //     this.props.handleSuccessfulAuth(res.data)
-            // }
+            if (res.data.logged_in) {
+                this.props.handleSuccessfulAuth(res.data)
+            }
         }).catch(err => {
             console.log(err);
         })

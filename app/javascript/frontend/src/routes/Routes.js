@@ -25,7 +25,7 @@ export default class Routes extends Component {
             { withCredentials: true })
             .then(res => {
                 console.log(res)
-                if (res.data.logged_in) {
+                if (res.data.logged_in && this.state.loggedInStatus === "Not_Logged_In") {
                     this.setState({
                         loggedInStatus: "Logged_In",
                         user: res.data.user
@@ -42,9 +42,9 @@ export default class Routes extends Component {
     }
 
 
-    // componentDidMount() {
-    //     this.checkLoginStatus()
-    // }
+    componentDidMount() {
+        this.checkLoginStatus()
+    }
 
 
     handleLogin(data) {
