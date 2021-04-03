@@ -24,7 +24,8 @@ export default class Routes extends Component {
         axios.get("http://localhost:3000/logged_in",
             { withCredentials: true })
             .then(res => {
-                if (res.data.logged_in && this.state.loggedInStatus === "Not_Logged_In") {
+                console.log(res)
+                if (res.data.logged_in) {
                     this.setState({
                         loggedInStatus: "Logged_In",
                         user: res.data.user
@@ -41,9 +42,9 @@ export default class Routes extends Component {
     }
 
 
-    componentDidMount() {
-        this.checkLoginStatus()
-    }
+    // componentDidMount() {
+    //     this.checkLoginStatus()
+    // }
 
 
     handleLogin(data) {
@@ -67,7 +68,7 @@ export default class Routes extends Component {
                 <Router>
                     <Switch>
                         <Route
-                            exact path={"/home"}
+                            exact path={"/"}
                             render={props => (
                                 <Home{...props}
                                     loggedInStatus={this.state.loggedInStatus}

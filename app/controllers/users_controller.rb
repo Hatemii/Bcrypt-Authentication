@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-    protect_from_forgery with: :null_session
 
     def new
         @user = User.new
@@ -16,7 +15,6 @@ class UsersController < ApplicationController
 
         if @user.valid?
             @user.save
-            session[:user_id] = @user.id
             render json: {
                 status: "created",
                 logged_in: true,
