@@ -3,9 +3,7 @@ import React, { Component } from 'react'
 export default class LogOut extends Component {
 
 
-    handleLogOut = () => {
-        console.log("Logout: true")
-    }
+    handleLogOut = () => { }
 
     render() {
         return (

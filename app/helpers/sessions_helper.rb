@@ -6,7 +6,7 @@ module SessionsHelper
         .find_by(email: params["user"]["email"])
         .authenticate(params["user"]["password"])
 
-        if user
+        if user 
             session[:user_id] = user.id
             render json:{
                 status: :created,
@@ -17,14 +17,15 @@ module SessionsHelper
             render json: {status: 401}
         end
     end
-
+    
 
    # Returns the current logged-in user (if any)
   def current_user
-    if session[:user_id]
-        @current_user ||= User.find(session[:user_id])
+    if session[:user_id] == user.id
+        @current_user ||= User.find(session[:user_id])  if session[:user_id]  
     end
   end
+
 
   # Check if user is logged_in
   def check_if_logged_in

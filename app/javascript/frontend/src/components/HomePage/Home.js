@@ -21,6 +21,7 @@ export default class Home extends Component {
     handleLogOutButton() {
         axios.delete("http://localhost:3000/logout", { withCredentials: true }
         ).then(res => {
+            console.log("You Are Logged Out successfully")
             this.props.handleLogOut()
         }).catch(err => {
             console.log(err)

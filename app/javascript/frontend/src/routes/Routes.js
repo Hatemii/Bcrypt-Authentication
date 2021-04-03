@@ -24,7 +24,7 @@ export default class Routes extends Component {
         axios.get("http://localhost:3000/logged_in",
             { withCredentials: true })
             .then(res => {
-                console.log(res)
+                console.log("logged in:", res)
                 if (res.data.logged_in && this.state.loggedInStatus === "Not_Logged_In") {
                     this.setState({
                         loggedInStatus: "Logged_In",
