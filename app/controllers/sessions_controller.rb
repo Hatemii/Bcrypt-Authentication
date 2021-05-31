@@ -1,21 +1,16 @@
 class SessionsController < ApplicationController
-
-  def new
-  end
-
+  include SessionsHelper
+  
   def create
-    user = User.find_by_email(params[:email])
-
-    if user && user.authenticate(params[:password])
-      session[:user_id] = user.id
-      redirect_to current_user, notice: "Logged in successfully"
-    else
-      redirect_to login_path
-    end
+    log_in
   end
 
-  def destroy
-    session[:user_id] = nil
-    redirect_to root_path
+  def logged_in
+    check_if_logged_in
   end
+
+  def logout
+    log_out
+  end
+
 end
